@@ -19,9 +19,11 @@ bot = Cinch::Bot.new do
   	elsif speaker != nick
 		f.write("#{nick} says ")
   	end
-  	
+
+  	text = m.action? ? m.action_message : query
+
   	speaker = nick
-  	f.write("#{m.action? ? m.action_message : query}\n")
+  	f.write("#{text}\n")
   	f.flush
   end
 end

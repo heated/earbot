@@ -10,5 +10,8 @@ gem install cinch
 
 #### Run 
 ```
-$ ruby bot.rb <irc.example_server.net> "#example_channel" && bash speaker.sh
+$ ruby bot.rb <irc.example_server.net> "#example_channel"
+```
+```
+$ ./speaker.sh
 ```

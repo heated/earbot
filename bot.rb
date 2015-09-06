@@ -14,12 +14,14 @@ bot = Cinch::Bot.new do
   on :message, /(.+)/ do |m, query|
   	nick = m.user.nick
 
-  	if speaker != nick
-  		f.write("#{nick} says ")
+  	if m.action?
+  		f.write("#{nick} ")
+  	elsif speaker != nick
+		f.write("#{nick} says ")
   	end
-
+  	
   	speaker = nick
-  	f.write("#{query}\n")
+  	f.write("#{m.action? ? m.action_message : query}\n")
   	f.flush
   end
 end
